@@ -18,6 +18,13 @@ public class App
         list.add("beech me",3);
         list.add("start me",0);
         list.add("last me",6);
+        list.add("Ankit");
         System.out.println(list);
+        System.out.println(list.indexOf("beech me"));
+        System.out.println(list.indexOf("start me"));
+        System.out.println(list.indexOf("last me"));
+        System.out.println(list.indexOf("Ankit"));
+        System.out.println(list.lastIndexOf("Ankit"));
+        System.out.println(list.pop());
     }
 }
