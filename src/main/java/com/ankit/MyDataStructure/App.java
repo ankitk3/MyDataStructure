@@ -1,5 +1,7 @@
 package com.ankit.MyDataStructure;
 
+import java.util.Iterator;
+
 import com.ankit.ds.MyLinkedList;
 
 /**
@@ -26,5 +28,9 @@ public class App
         System.out.println(list.indexOf("Ankit"));
         System.out.println(list.lastIndexOf("Ankit"));
         System.out.println(list.pop());
+        Iterator<String> it = list.iterator();
+        while(it.hasNext()) {
+        	System.out.println(it.next());
+        }
     }
 }

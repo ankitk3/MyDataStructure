@@ -1,6 +1,8 @@
 package com.ankit.ds;
 
-public class MyLinkedList {
+import java.util.Iterator;
+
+public class MyLinkedList implements Iterable<String>{
 
 	private String data;
 	private MyLinkedList next;
@@ -140,5 +142,18 @@ public class MyLinkedList {
 	@Override
 	public String toString() {
 		return "\nMyLinkedList [data=" + data + ", next=" + next + ", size=" + size + "]\n";
+	}
+	public Iterator<String> iterator() {
+		return new Iterator<String>() {
+			MyLinkedList cur = head;
+			public String next() {
+				cur=cur.next;
+				return cur.data;
+			}
+			
+			public boolean hasNext() {
+				return cur.next!=null;
+			}
+		};
 	}
 }
