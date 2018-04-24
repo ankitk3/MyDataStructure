@@ -34,6 +34,7 @@ public class MyLinkedList implements Iterable<String>{
 			head = newNode;
 			next = newNode;
 			newNode.next=nextOne;
+			size++;
 		} else if(size == index) {
 			add(data);
 		} else {
@@ -47,8 +48,8 @@ public class MyLinkedList implements Iterable<String>{
 			MyLinkedList next = current.next;
 			current.next=newNode;
 			newNode.next=next;
+			size++;
 		}
-		size++;
 	}
 	public void addAll(String ...data) {
 		for(String dataStr : data) {
@@ -147,13 +148,29 @@ public class MyLinkedList implements Iterable<String>{
 		return new Iterator<String>() {
 			MyLinkedList cur = head;
 			public String next() {
-				cur=cur.next;
-				return cur.data;
+				if(cur==head) {
+					String data = cur.data;
+					cur=cur.next;
+					return data;
+				}else {
+					cur=cur.next;
+					return cur.data;
+				}
 			}
 			
 			public boolean hasNext() {
 				return cur.next!=null;
 			}
 		};
+	}
+	public String[] toArray() {
+		String [] arr = new String[size];
+		Iterator<String>it = this.iterator();
+		int i=0;
+		while(it.hasNext()) {
+			arr[i]=it.next();
+			i++;
+		}
+		return arr;
 	}
 }

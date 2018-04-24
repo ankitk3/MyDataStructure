@@ -44,6 +44,16 @@ public class App
     	System.out.println("Before sort "+LinkedListProblems.node);
     	System.out.println(LinkedListProblems.sort());
     	System.out.println("After sort "+LinkedListProblems.node);
+    	LinkedListProblems.resetNode();
+    	System.out.println("After append "+LinkedListProblems.append(LinkedListProblems.node, LinkedListProblems.getDescNode()));
+    	LinkedListProblems.resetNode();
+    	LinkedListProblems.frontBackSplit();
+    	LinkedListProblems.resetNode();
+    	LinkedListProblems.removeDuplicateFromSortedList();
+    	LinkedListProblems.resetNode();
+    	LinkedListProblems.moveNode(LinkedListProblems.node, LinkedListProblems.getDescNode());
+    	LinkedListProblems.resetNode();
+    	LinkedListProblems.alternateSplit();
     }
     private static void operation() {
     	MyLinkedList list = new MyLinkedList();
@@ -64,7 +74,9 @@ public class App
         System.out.println(list.pop());
         Iterator<String> it = list.iterator();
         while(it.hasNext()) {
-        	System.out.println(it.next());
+        	System.out.println("In iterator="+it.next());
         }
+        for(String s : list.toArray())
+        	System.out.println("In array="+s);
     }
 }

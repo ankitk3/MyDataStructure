@@ -127,6 +127,115 @@ public class LinkedListProblems {
 		node = newNodeList;
 		return true;
 	}
+	public static Node append(Node a, Node b) {
+		if(a == null && b == null) {
+			return null;
+		}
+		if(b==null) {
+			return a;
+		}
+		if (a == null) {
+			return b;
+		}
+		Node previous=a;
+		Node copy = a;
+		while(copy!=null) {
+			previous=copy;
+			copy=copy.next;
+		}
+		previous.next=b;
+		return a;
+	}
+	public static void frontBackSplit() {
+		Node copy = node;
+		Node slow = node;
+		Node previous=node;
+		boolean isChange=false;
+		int totCount=0;
+		while(copy!=null) {
+			copy=copy.next;
+			if(isChange) {
+				previous=slow;
+				slow=slow.next;
+			}
+			isChange = !isChange;
+			totCount++;
+		}
+		System.out.println(totCount);
+		System.out.println(slow.data+"::");
+		Node newNode=null;
+		if(totCount%2==0) {
+			newNode = previous.next;
+			previous.next=null;
+		} else {
+			newNode = slow.next;
+			slow.next=null;
+		}
+		System.out.println("First node = "+node);
+		System.out.println("Second node = "+newNode);
+	}
+	/**
+	 * Pops node from a and adds to node b
+	 * @param a
+	 * @param b
+	 */
+	public static void moveNode(Node a, Node b) {
+		System.out.println("Before "+a+"::"+b);
+		Node copy = a;
+		a=a.next;
+		Node copy2 = b;
+		Node previous2 = copy2;
+		while(copy2!=null) {
+			previous2=copy2;
+			copy2=copy2.next;
+		}
+		previous2.next=copy;
+		copy.next=null;
+		System.out.println("After "+a+"::"+b);
+	}
+	public static void removeDuplicateFromSortedList() {
+		node.getNext().getNext().getNext().getNext().getNext().setNext(new Node(25));
+		Node copy = node;
+		Node previous=node;
+		while(copy!=null) {
+			previous = copy;
+			copy = copy.next;
+			if(previous.data == copy.data) {
+				copy = copy.next;
+				previous.next=copy;
+			}
+		}
+		System.out.println("Removing duplicates node is "+node);
+	}
+	public static void alternateSplit() {
+		Node first=null,original=null;
+		Node second=null,orig2=null;
+		Node copy = node;
+		int count = 0;
+		while(copy!=null) {
+			if(count%2==0) {
+				if(first==null) {
+					first=copy;
+					original=first;
+				}else {
+					first.next=copy;
+					first=first.next;
+				}
+				
+			} else {
+				if(second==null) {
+					second=copy;
+					orig2=second;
+				} else {
+					second.next=copy;
+					second=second.next;
+				}
+			}
+			copy=copy.next;
+			count++;
+		}
+		System.out.println("Alternate split "+original+"::"+orig2);
+	}
 	public static class Node{
 		private int data;
 		private Node next;
