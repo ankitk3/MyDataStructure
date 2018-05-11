@@ -44,6 +44,9 @@ public class App
     	System.out.println("Before sort "+LinkedListProblems.node);
     	System.out.println(LinkedListProblems.sort());
     	System.out.println("After sort "+LinkedListProblems.node);
+    	LinkedListProblems.resetNode();
+    	System.out.println("Before merge "+LinkedListProblems.node);
+    	System.out.println(LinkedListProblems.appendTwoList(LinkedListProblems.getNode(), LinkedListProblems.getDescNode()));
     }
     private static void operation() {
     	MyLinkedList list = new MyLinkedList();

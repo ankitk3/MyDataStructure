@@ -127,6 +127,25 @@ public class LinkedListProblems {
 		node = newNodeList;
 		return true;
 	}
+	public static Node appendTwoList(Node firstNode, Node secondNode) {
+		if(firstNode==null && secondNode==null) {
+			return null;
+		}
+		if(firstNode == null) {
+			return secondNode;
+		}
+		if(secondNode == null) {
+			return firstNode;
+		}
+		Node lastNode=null;
+		Node copy = firstNode;
+		while(copy!=null) {
+			lastNode=copy;
+			copy=copy.next;
+		}
+		lastNode.next = secondNode;
+		return firstNode;
+	}
 	public static class Node{
 		private int data;
 		private Node next;
