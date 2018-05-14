@@ -54,6 +54,8 @@ public class App
     	LinkedListProblems.moveNode(LinkedListProblems.node, LinkedListProblems.getDescNode());
     	LinkedListProblems.resetNode();
     	LinkedListProblems.alternateSplit();
+    	System.out.println("Before merge "+LinkedListProblems.node);
+    	System.out.println(LinkedListProblems.appendTwoList(LinkedListProblems.getNode(), LinkedListProblems.getDescNode()));
     }
     private static void operation() {
     	MyLinkedList list = new MyLinkedList();
